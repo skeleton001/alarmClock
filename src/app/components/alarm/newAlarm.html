@@ -1,0 +1,29 @@
+<form name="alarmForm" ng-submit="alarm.setAlarm()" novalidate>
+    <!-- Alarm Time -->
+    <div class="form-group">
+        <div uib-timepicker ng-model="alarm.alarm.time" ng-change="alarm.changed()" hour-step="alarm.hstep" minute-step="alarm.mstep" show-meridian="alarm.ismeridian"></div>
+        <p style="color: red;" ng-show="alarm.isExist">Alarm already exist!!!</p>
+    </div>
+    <!-- Alarm Title -->
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" ng-model="alarm.alarm.title">
+    </div>
+    <!-- Alarm isRepeat Selection-->
+    <div>
+        <label>Repeat &nbsp;&nbsp;</label>
+        <input type="checkbox" name="isRepeat" ng-model="alarm.alarm.isRepeat">
+    </div>
+    <!-- repeatDays checkbox -->
+    <div class="form-group" ng-show= "alarm.alarm.isRepeat"  ng-class="{ 'has-error' : alarmForm.repeatDays.$invalid && larmForm.repeatDays.$pristine }">
+        <div ng-repeat="day in alarm.days">
+            <input type="checkbox" ng-model="alarm.selection[day.id]" ng-change="alarm.checkboxChanged()" ng-required="!alarm.someSelected" /> {{day.name}}
+        </div>
+    </div>
+    <br><br>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary" ng-disabled="alarmForm.$invalid || alarm.isExist">Add</button>
+        <a style="text-decoration: none;" ui-sref="alarm.list"><button class="btn btn-primary btn-xm">Cancel</button></a>
+    </div>
+</form>
+
