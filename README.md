@@ -1,7 +1,7 @@
 # Alarm Clock | (c) Pirate
 
 ## Usage
-###1. Setup
+### 1. Setup
 ```bash
 npm install
 ```
@@ -36,7 +36,7 @@ gulp serve-build
 * Service worker generation support
 
 
-##Project structure 
+## Project structure 
 
 ```
  _build
