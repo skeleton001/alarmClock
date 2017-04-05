@@ -72,8 +72,8 @@ gulp.task('clean:build', function (cb) {
 // need to update !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 gulp.task('fonts', function() {
   gulp.src('./src/**/**/**/*.{ttf,woff,eof,eot,svg}')
-  .pipe($.changed('./_build/fonts'))
-  .pipe(gulp.dest('./_build/fonts'));
+  .pipe($.changed('./_build/assets/fonts'))
+  .pipe(gulp.dest('./_build/assets/fonts'));
 });
 
 
